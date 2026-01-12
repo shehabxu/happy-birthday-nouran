@@ -47,12 +47,6 @@
       line-height: 1.6;
     }
 
-    .hint {
-      margin-top: 15px;
-      font-size: 0.9rem;
-      color: #888;
-    }
-
     .balloons {
       position: absolute;
       bottom: -150px;
@@ -104,17 +98,14 @@
 
 <body>
 
-  <!-- كارت التهنئة -->
   <div class="card">
     <h1>Happy Birthday 🎉</h1>
     <h2>Nouran 💖</h2>
     <p>
       January 13 — the day the most amazing girl ever was born.
     </p>
-    <div class="hint">Enjoy the surprise 🎶</div>
   </div>
 
-  <!-- بالونات -->
   <div class="balloons">
     <div class="balloon"></div>
     <div class="balloon"></div>
@@ -127,40 +118,37 @@
     <source src="music.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- زر الموسيقى -->
-  <button id="musicBtn" class="music-btn" onclick="manualPlay()">🎵</button>
+  <!-- زر احتياطي -->
+  <button id="musicBtn" class="music-btn" onclick="forcePlay()">🎵</button>
 
   <script>
     const music = document.getElementById("bg-music");
-    const musicBtn = document.getElementById("musicBtn");
-    let started = false;
+    const btn = document.getElementById("musicBtn");
+    let played = false;
 
-    function startMusicWithDelay() {
-      if (started) return;
-      started = true;
+    function playMusic() {
+      if (played) return;
+      played = true;
 
-      setTimeout(() => {
-        music.volume = 0.6;
-        music.play().then(() => {
-          musicBtn.style.display = "none";
-        }).catch(() => {
-          // لو المتصفح منع التشغيل، الزر يفضل ظاهر
-        });
-      }, 2000);
+      music.volume = 0.6;
+      music.play().then(() => {
+        btn.style.display = "none";
+      }).catch(() => {
+        // المتصفح منع التشغيل، الزر يفضل ظاهر
+      });
     }
 
-    // محاولة تشغيل تلقائي
-    window.addEventListener("load", startMusicWithDelay);
+    // محاولة تشغيل فوري أول ما الصفحة تفتح
+    window.addEventListener("load", playMusic);
 
     // أول تفاعل = تشغيل مؤكد
-    document.addEventListener("click", startMusicWithDelay, { once: true });
-    document.addEventListener("touchstart", startMusicWithDelay, { once: true });
+    document.addEventListener("click", playMusic, { once: true });
+    document.addEventListener("touchstart", playMusic, { once: true });
 
-    // تشغيل يدوي من الزر
-    function manualPlay() {
+    function forcePlay() {
       music.volume = 0.6;
       music.play();
-      musicBtn.style.display = "none";
+      btn.style.display = "none";
     }
   </script>
 
