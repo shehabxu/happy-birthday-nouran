@@ -79,7 +79,7 @@ p{
   position:absolute;
   font-size:18px;
   animation:floatUp 5s linear forwards;
-  opacity:0.8;
+  opacity:0.85;
   pointer-events:none;
 }
 
@@ -154,39 +154,51 @@ const content = document.getElementById("content");
 const music = document.getElementById("music");
 const unlock = document.getElementById("unlock");
 
-box.addEventListener("click", () => {
-  box.classList.add("opened");
+let opened = false;
 
-  unlock.volume = 0.4;
-  unlock.play();
+// فتح الهدية
+box.addEventListener("click", (e) => {
+  if (!opened) {
+    opened = true;
+    box.classList.add("opened");
 
-  music.volume = 0.5;
-  music.play();
+    unlock.volume = 0.4;
+    unlock.play();
 
-  setTimeout(()=>{
-    cover.style.display="none";
-    content.style.display="block";
-    startEffects();
-  },800);
+    music.volume = 0.5;
+    music.play();
 
-},{ once:true });
+    setTimeout(()=>{
+      cover.style.display="none";
+      content.style.display="block";
+      startEffects();
+    },800);
+  }
 
-/* قلوب + بالونات مستمرة */
+  // كل نقرة = قلوب
+  spawnTapHearts(e.clientX, e.clientY);
+});
+
+/* تأثيرات مستمرة */
 function startEffects(){
-  setInterval(createHeart, 800);
   setInterval(createBalloon, 2000);
 }
 
-function createHeart(){
-  const h=document.createElement("div");
-  h.className="heart";
-  h.innerText="💗";
-  h.style.left=Math.random()*100+"%";
-  h.style.bottom="20%";
-  document.body.appendChild(h);
-  setTimeout(()=>h.remove(),5000);
+/* قلوب مع النقرة */
+function spawnTapHearts(x, y){
+  for(let i=0;i<6;i++){
+    const h=document.createElement("div");
+    h.className="heart";
+    h.innerText="💗";
+    h.style.left = (x + Math.random()*40 - 20) + "px";
+    h.style.top  = (y + Math.random()*40 - 20) + "px";
+    h.style.animationDuration = 3 + Math.random()*2 + "s";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),5000);
+  }
 }
 
+/* بالونات */
 function createBalloon(){
   const b=document.createElement("div");
   b.className="balloon";
