@@ -21,17 +21,16 @@ body{
   overflow:hidden;
 }
 
-/* الكارت الأساسي */
+/* الغلاف */
 .wrapper{
   text-align:center;
   cursor:pointer;
-  animation:fadeIn 1.2s ease;
 }
 
 .cover{
-  padding:30px 40px;
-  border-radius:18px;
-  background:rgba(255,255,255,0.7);
+  padding:30px 45px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.75);
   backdrop-filter:blur(8px);
   box-shadow:0 20px 40px rgba(0,0,0,0.08);
   transition:all 1s ease;
@@ -39,7 +38,7 @@ body{
 
 .cover span{
   font-size:1.1rem;
-  color:#666;
+  color:#777;
   letter-spacing:1px;
 }
 
@@ -56,46 +55,69 @@ body{
 
 h1{
   font-family:'Playfair Display',serif;
-  font-size:2.4rem;
+  font-size:2.5rem;
   color:#e25c7f;
   margin:0;
 }
 
 h2{
-  margin-top:12px;
-  font-size:1.4rem;
+  margin-top:10px;
+  font-size:1.5rem;
   font-weight:400;
   color:#555;
 }
 
 p{
-  margin-top:20px;
-  font-size:1.15rem;
+  margin-top:25px;
+  font-size:1.2rem;
   color:#666;
-  line-height:1.7;
+  line-height:1.8;
 }
 
-@keyframes fadeIn{
-  from{opacity:0;transform:translateY(15px)}
-  to{opacity:1;transform:none}
+/* قلوب */
+.heart{
+  position:absolute;
+  font-size:18px;
+  animation:floatUp 5s linear forwards;
+  opacity:0.8;
+  pointer-events:none;
 }
 
+/* بالونات */
+.balloon{
+  position:absolute;
+  bottom:-120px;
+  width:60px;
+  height:80px;
+  border-radius:50%;
+  animation:balloonUp 9s linear forwards;
+  opacity:0.9;
+}
+
+.balloon::after{
+  content:"";
+  position:absolute;
+  width:2px;
+  height:40px;
+  background:#aaa;
+  left:50%;
+  top:100%;
+}
+
+/* أنيميشن */
 @keyframes reveal{
   from{opacity:0;transform:translateY(20px)}
   to{opacity:1;transform:none}
 }
 
-/* قلوب خفيفة */
-.heart{
-  position:absolute;
-  font-size:18px;
-  animation:float 4s ease-out forwards;
-  opacity:0.8;
+@keyframes floatUp{
+  from{transform:translateY(0);opacity:1}
+  to{transform:translateY(-350px);opacity:0}
 }
 
-@keyframes float{
-  from{transform:translateY(0);opacity:1}
-  to{transform:translateY(-300px);opacity:0}
+@keyframes balloonUp{
+  from{transform:translateY(0)}
+  to{transform:translateY(-500px)}
 }
 </style>
 </head>
@@ -114,8 +136,8 @@ p{
     <h1>Happy Birthday</h1>
     <h2>Nouran 💖</h2>
     <p>
-      January 13 — the day the most amazing girl ever was born.<br>
-      The world quietly became more beautiful.
+      January 13 — the day the world received a heart like yours.<br>
+      Soft, kind, beautiful… and unforgettable.
     </p>
   </div>
 
@@ -133,7 +155,6 @@ const music = document.getElementById("music");
 const unlock = document.getElementById("unlock");
 
 box.addEventListener("click", () => {
-
   box.classList.add("opened");
 
   unlock.volume = 0.4;
@@ -145,22 +166,35 @@ box.addEventListener("click", () => {
   setTimeout(()=>{
     cover.style.display="none";
     content.style.display="block";
-    releaseHearts();
+    startEffects();
   },800);
 
 },{ once:true });
 
-function releaseHearts(){
-  for(let i=0;i<12;i++){
-    const h=document.createElement("div");
-    h.className="heart";
-    h.innerText="💗";
-    h.style.left=Math.random()*100+"%";
-    h.style.bottom="40%";
-    h.style.animationDuration=3+Math.random()*2+"s";
-    document.body.appendChild(h);
-    setTimeout(()=>h.remove(),4000);
-  }
+/* قلوب + بالونات مستمرة */
+function startEffects(){
+  setInterval(createHeart, 800);
+  setInterval(createBalloon, 2000);
+}
+
+function createHeart(){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerText="💗";
+  h.style.left=Math.random()*100+"%";
+  h.style.bottom="20%";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),5000);
+}
+
+function createBalloon(){
+  const b=document.createElement("div");
+  b.className="balloon";
+  b.style.left=Math.random()*100+"%";
+  b.style.background=["#ff8fab","#ffd6e0","#f4acb7","#ffc8dd"]
+    [Math.floor(Math.random()*4)];
+  document.body.appendChild(b);
+  setTimeout(()=>b.remove(),9000);
 }
 </script>
 
