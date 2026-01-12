@@ -1,189 +1,189 @@
-!DOCTYPE html
-html lang=en
-head
-meta charset=UTF-8
-titleFor Nourantitle
-meta name=viewport content=width=device-width, initial-scale=1.0
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Nouran</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-link href=httpsfonts.googleapis.comcss2family=Playfair+Displaywght@500;600&family=Poppinswght@300;400&display=swap rel=stylesheet
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
-style
-{box-sizingborder-box}
+<style>
+*{box-sizing:border-box}
 
 body{
-  margin0;
-  height100vh;
-  background#f7e6eb;
-  displayflex;
-  justify-contentcenter;
-  align-itemscenter;
-  font-family'Poppins',sans-serif;
-  overflowhidden;
+  margin:0;
+  height:100vh;
+  background:#f7e6eb;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
 }
 
- الغلاف 
+/* الغلاف */
 .wrapper{
-  text-aligncenter;
-  cursorpointer;
+  text-align:center;
+  cursor:pointer;
 }
 
 .cover{
-  padding30px 45px;
-  border-radius20px;
-  backgroundrgba(255,255,255,0.75);
-  backdrop-filterblur(8px);
-  box-shadow0 20px 40px rgba(0,0,0,0.08);
-  transitionall 1s ease;
+  padding:30px 45px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.75);
+  backdrop-filter:blur(8px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.08);
+  transition:all 1s ease;
 }
 
 .cover span{
-  font-size1.1rem;
-  color#777;
-  letter-spacing1px;
+  font-size:1.1rem;
+  color:#777;
+  letter-spacing:1px;
 }
 
- بعد الفتح 
+/* بعد الفتح */
 .opened .cover{
-  transformscale(1.05);
-  opacity0;
+  transform:scale(1.05);
+  opacity:0;
 }
 
 .content{
-  displaynone;
-  animationreveal 1.6s ease forwards;
+  display:none;
+  animation:reveal 1.6s ease forwards;
 }
 
 h1{
-  font-family'Playfair Display',serif;
-  font-size2.5rem;
-  color#e25c7f;
-  margin0;
+  font-family:'Playfair Display',serif;
+  font-size:2.5rem;
+  color:#e25c7f;
+  margin:0;
 }
 
 h2{
-  margin-top10px;
-  font-size1.5rem;
-  font-weight400;
-  color#555;
+  margin-top:10px;
+  font-size:1.5rem;
+  font-weight:400;
+  color:#555;
 }
 
 p{
-  margin-top25px;
-  font-size1.25rem;
-  color#666;
-  line-height1.9;
+  margin-top:25px;
+  font-size:1.25rem;
+  color:#666;
+  line-height:1.9;
 }
 
- صورة 
+/* صورة */
 .photo{
-  width150px;
-  height150px;
-  border-radius50%;
-  object-fitcover;
-  margin-bottom20px;
-  box-shadow0 20px 40px rgba(226,92,127,0.35);
-  animationphotoPulse 3s infinite;
-  positionrelative;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:20px;
+  box-shadow:0 20px 40px rgba(226,92,127,0.35);
+  animation:photoPulse 3s infinite;
+  position:relative;
 }
 
- اهتزاز ناعم 
+/* اهتزاز ناعم */
 @keyframes photoPulse{
-  0%{transformscale(1)}
-  50%{transformscale(1.05)}
-  100%{transformscale(1)}
+  0%{transform:scale(1)}
+  50%{transform:scale(1.05)}
+  100%{transform:scale(1)}
 }
 
- قلوب 
+/* قلوب */
 .heart{
-  positionabsolute;
-  font-size18px;
-  animationfloatUp 4s linear forwards;
-  opacity0.9;
-  pointer-eventsnone;
+  position:absolute;
+  font-size:18px;
+  animation:floatUp 4s linear forwards;
+  opacity:0.9;
+  pointer-events:none;
 }
 
- بالونات 
+/* بالونات */
 .balloon{
-  positionabsolute;
-  bottom-120px;
-  width60px;
-  height80px;
-  border-radius50%;
-  animationballoonUp 9s linear forwards;
-  opacity0.9;
+  position:absolute;
+  bottom:-120px;
+  width:60px;
+  height:80px;
+  border-radius:50%;
+  animation:balloonUp 9s linear forwards;
+  opacity:0.9;
 }
 
-.balloonafter{
-  content;
-  positionabsolute;
-  width2px;
-  height40px;
-  background#aaa;
-  left50%;
-  top100%;
+.balloon::after{
+  content:"";
+  position:absolute;
+  width:2px;
+  height:40px;
+  background:#aaa;
+  left:50%;
+  top:100%;
 }
 
- أنيميشن 
+/* أنيميشن */
 @keyframes reveal{
-  from{opacity0;transformtranslateY(20px)}
-  to{opacity1;transformnone}
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:none}
 }
 
 @keyframes floatUp{
-  from{transformtranslateY(0) scale(1);opacity1}
-  to{transformtranslateY(-320px) scale(1.6);opacity0}
+  from{transform:translateY(0) scale(1);opacity:1}
+  to{transform:translateY(-320px) scale(1.6);opacity:0}
 }
 
 @keyframes balloonUp{
-  from{transformtranslateY(0)}
-  to{transformtranslateY(-500px)}
+  from{transform:translateY(0)}
+  to{transform:translateY(-500px)}
 }
-style
-head
+</style>
+</head>
 
-body
+<body>
 
-div class=wrapper id=box
+<div class="wrapper" id="box">
 
-  !-- الغلاف --
-  div class=cover id=cover
-    spanTap to openspan
-  div
+  <!-- الغلاف -->
+  <div class="cover" id="cover">
+    <span>Tap to open</span>
+  </div>
 
-  !-- المحتوى --
-  div class=content id=content
-    img src=nouran.jpg class=photo id=photo
+  <!-- المحتوى -->
+  <div class="content" id="content">
+    <img src="nouran.jpg" class="photo" id="photo">
 
-    h1Happy Birthdayh1
-    h2Nouran 🫶🏻h2
+    <h1>Happy Birthday</h1>
+    <h2>Nouran 🫶🏻</h2>
 
-    p
-      January 13 — the day the world received a heart like yours 🫶🏻br
+    <p>
+      January 13 — the day the world received a heart like yours 🫶🏻<br>
       Soft, kind, beautiful… and unforgettable 😍
-    p
-  div
+    </p>
+  </div>
 
-div
+</div>
 
-!-- الأصوات --
-audio id=music src=music.mp3 loopaudio
-audio id=unlock src=unlock.mp3audio
+<!-- الأصوات -->
+<audio id="music" src="music.mp3" loop></audio>
+<audio id="unlock" src="unlock.mp3"></audio>
 
-script
-const box = document.getElementById(box);
-const cover = document.getElementById(cover);
-const content = document.getElementById(content);
-const music = document.getElementById(music);
-const unlock = document.getElementById(unlock);
-const photo = document.getElementById(photo);
+<script>
+const box = document.getElementById("box");
+const cover = document.getElementById("cover");
+const content = document.getElementById("content");
+const music = document.getElementById("music");
+const unlock = document.getElementById("unlock");
+const photo = document.getElementById("photo");
 
 let opened = false;
 
- فتح الهدية
-box.addEventListener(click, (e) = {
+// فتح الهدية
+box.addEventListener("click", (e) => {
   if (!opened) {
     opened = true;
-    box.classList.add(opened);
+    box.classList.add("opened");
 
     unlock.volume = 0.4;
     unlock.play();
@@ -191,9 +191,9 @@ box.addEventListener(click, (e) = {
     music.volume = 0.5;
     music.play();
 
-    setTimeout(()={
-      cover.style.display=none;
-      content.style.display=block;
+    setTimeout(()=>{
+      cover.style.display="none";
+      content.style.display="block";
       startEffects();
     },800);
   }
@@ -201,54 +201,53 @@ box.addEventListener(click, (e) = {
   spawnTapHearts(e.clientX, e.clientY);
 });
 
- تأثيرات مستمرة 
+/* تأثيرات مستمرة */
 function startEffects(){
   setInterval(createBalloon, 2000);
   setInterval(spawnPhotoHearts, 1200);
 }
 
- قلوب من الصورة نفسها 
+/* قلوب من الصورة نفسها */
 function spawnPhotoHearts(){
   const rect = photo.getBoundingClientRect();
 
-  const x = rect.left + rect.width  2;
-  const y = rect.top + rect.height  2;
+  const x = rect.left + rect.width / 2;
+  const y = rect.top + rect.height / 2;
 
-  const h = document.createElement(div);
-  h.className=heart;
-  h.innerText=🫶🏻;
-  h.style.left = x + px;
-  h.style.top  = y + px;
+  const h = document.createElement("div");
+  h.className="heart";
+  h.innerText="🫶🏻";
+  h.style.left = x + "px";
+  h.style.top  = y + "px";
   document.body.appendChild(h);
 
-  setTimeout(()=h.remove(),4000);
+  setTimeout(()=>h.remove(),4000);
 }
 
- قلوب مع النقر 
+/* قلوب مع النقر */
 function spawnTapHearts(x, y){
-  for(let i=0;i5;i++){
-    const h=document.createElement(div);
-    h.className=heart;
-    h.innerText=💗;
-    h.style.left = (x + Math.random()40 - 20) + px;
-    h.style.top  = (y + Math.random()40 - 20) + px;
+  for(let i=0;i<5;i++){
+    const h=document.createElement("div");
+    h.className="heart";
+    h.innerText="💗";
+    h.style.left = (x + Math.random()*40 - 20) + "px";
+    h.style.top  = (y + Math.random()*40 - 20) + "px";
     document.body.appendChild(h);
-    setTimeout(()=h.remove(),4000);
+    setTimeout(()=>h.remove(),4000);
   }
 }
 
- بالونات 
+/* بالونات */
 function createBalloon(){
-  const b=document.createElement(div);
-  b.className=balloon;
-  b.style.left=Math.random()100+%;
-  b.style.background=[#ff8fab,#ffd6e0,#f4acb7,#ffc8dd]
-    [Math.floor(Math.random()4)];
+  const b=document.createElement("div");
+  b.className="balloon";
+  b.style.left=Math.random()*100+"%";
+  b.style.background=["#ff8fab","#ffd6e0","#f4acb7","#ffc8dd"]
+    [Math.floor(Math.random()*4)];
   document.body.appendChild(b);
-  setTimeout(()=b.remove(),9000);
+  setTimeout(()=>b.remove(),9000);
 }
-script
+</script>
 
-body
-html
-
+</body>
+</html>
