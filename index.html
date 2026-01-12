@@ -1,97 +1,99 @@
-!DOCTYPE html
-html lang=en
-head
-  meta charset=UTF-8 
-  titleHappy Birthday Nourantitle
-  meta name=viewport content=width=device-width, initial-scale=1.0
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Nouran</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  style
+  <style>
     body {
-      margin 0;
-      height 100vh;
-      background linear-gradient(135deg, #ff9a9e, #fad0c4);
-      display flex;
-      justify-content center;
-      align-items center;
-      font-family Arial, sans-serif;
-      overflow hidden;
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
     }
 
     .card {
-      background rgba(255,255,255,0.9);
-      padding 40px 30px;
-      border-radius 20px;
-      text-align center;
-      box-shadow 0 20px 40px rgba(0,0,0,0.2);
-      animation fadeIn 1.5s ease;
+      background: rgba(255,255,255,0.9);
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      animation: fadeIn 1.5s ease;
     }
 
     h1 {
-      font-size 3rem;
-      margin 0;
-      color #ff4d6d;
+      font-size: 3rem;
+      margin: 0;
+      color: #ff4d6d;
     }
 
     h2 {
-      margin-top 10px;
-      font-size 2rem;
-      color #333;
+      margin-top: 10px;
+      font-size: 2rem;
+      color: #333;
     }
 
     p {
-      margin-top 20px;
-      font-size 1.2rem;
-      color #555;
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #555;
     }
 
     .balloons {
-      position absolute;
-      bottom -150px;
-      width 100%;
-      display flex;
-      justify-content space-around;
+      position: absolute;
+      bottom: -150px;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
     }
 
     .balloon {
-      width 80px;
-      height 100px;
-      background red;
-      border-radius 50%;
-      animation float 6s infinite ease-in-out;
+      width: 80px;
+      height: 100px;
+      border-radius: 50%;
+      animation: float 6s infinite ease-in-out;
     }
 
-    .balloonnth-child(1) { background #ff4d6d; animation-delay 0s; }
-    .balloonnth-child(2) { background #ffd166; animation-delay 1s; }
-    .balloonnth-child(3) { background #06d6a0; animation-delay 2s; }
-    .balloonnth-child(4) { background #4d96ff; animation-delay 3s; }
+    .balloon:nth-child(1) { background: #ff4d6d; animation-delay: 0s; }
+    .balloon:nth-child(2) { background: #ffd166; animation-delay: 1s; }
+    .balloon:nth-child(3) { background: #06d6a0; animation-delay: 2s; }
+    .balloon:nth-child(4) { background: #4d96ff; animation-delay: 3s; }
 
     @keyframes float {
-      0% { transform translateY(0); }
-      50% { transform translateY(-300px); }
-      100% { transform translateY(0); }
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-300px); }
+      100% { transform: translateY(0); }
     }
 
     @keyframes fadeIn {
-      from { opacity 0; transform scale(0.8); }
-      to { opacity 1; transform scale(1); }
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
     }
-  style
-head
+  </style>
+</head>
 
-body
+<body>
 
-  div class=card
-    h1Happy Birthday 🎉h1
-    h2Nouran 💖h2
-    pWishing you a day filled with happiness,brlove and beautiful surprises 🎂✨p
-  div
+  <div class="card">
+    <h1>Happy Birthday 🎉</h1>
+    <h2>Nouran 💖</h2>
+    <p>
+      Wishing you a day filled with happiness,<br>
+      love and beautiful surprises 🎂✨
+    </p>
+  </div>
 
-  div class=balloons
-    div class=balloondiv
-    div class=balloondiv
-    div class=balloondiv
-    div class=balloondiv
-  div
+  <div class="balloons">
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+  </div>
 
-body
-html
+</body>
+</html>
