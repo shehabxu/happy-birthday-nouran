@@ -42,8 +42,9 @@
 
     p {
       margin-top: 20px;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: #555;
+      line-height: 1.6;
     }
 
     .hint {
@@ -103,18 +104,15 @@
 
 <body>
 
-  <!-- كارت التهنئة -->
   <div class="card">
     <h1>Happy Birthday 🎉</h1>
     <h2>Nouran 💖</h2>
     <p>
-      Wishing you a day filled with happiness,<br>
-      love and beautiful surprises 🎂✨
+      January 13 — the day the most amazing girl ever was born.
     </p>
     <div class="hint">اضغط في أي مكان لتشغيل الموسيقى 🎵</div>
   </div>
 
-  <!-- بالونات -->
   <div class="balloons">
     <div class="balloon"></div>
     <div class="balloon"></div>
@@ -122,26 +120,23 @@
     <div class="balloon"></div>
   </div>
 
-  <!-- الموسيقى -->
   <audio id="bg-music" loop>
     <source src="music.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- زر تشغيل / إيقاف -->
   <button class="music-btn" onclick="toggleMusic()">🎵</button>
 
   <script>
     const music = document.getElementById("bg-music");
     let started = false;
 
-    // تشغيل الموسيقى بعد أول لمسة
     document.body.addEventListener("click", () => {
       if (!started) {
         music.volume = 0.6;
         music.play();
         started = true;
       }
-    });
+    }, { once: true });
 
     function toggleMusic() {
       if (music.paused) {
